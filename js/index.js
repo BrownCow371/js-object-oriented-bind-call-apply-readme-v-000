@@ -12,11 +12,11 @@ class User {
     }
  
     matchInterests(event) {
-        console.log("'this' is defined: ", this);
-        return event.keywords.some(function(word) {
-            console.log("'this' is now undefined: ", this);
-            return this.interests.includes(word);
-        });
+        return event.keywords.some(
+            function(word) {
+                return this.interests.includes(word);
+            }.bind(this) // added to the and of the callback function
+        );
     }
 }
  
