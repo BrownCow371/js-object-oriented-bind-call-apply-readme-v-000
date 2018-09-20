@@ -8,3 +8,5 @@ function greet(customer) {
 let newGreet = greet.bind(sally);
 
 newGreet('Bob');
+
+greet('Bob');
