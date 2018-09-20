@@ -1,16 +1,3 @@
-// use this to copy code snippets or us your browser's console
-let sally = { name: 'Sally' };
-
-function greet(customer) {
-    console.log(customer, "my name is", this.name);
-}
-
-let newGreet = greet.bind(sally);
-
-newGreet('Bob');
-
-greet('Bob');
-
 class Event {
     constructor(title, keywords) {
         this.title = title;
@@ -25,7 +12,9 @@ class User {
     }
  
     matchInterests(event) {
+        console.log("'this' is defined: ", this);
         return event.keywords.some(function(word) {
+            console.log("'this' is now undefined: ", this);
             return this.interests.includes(word);
         });
     }
